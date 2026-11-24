@@ -1,0 +1,368 @@
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --text: #18202c;
+  --muted: #5c687a;
+  --border: #dce2ec;
+  --accent: #1d5fd6;
+  --accent-hover: #164bb0;
+  --ok-bg: #eaf7ef;
+  --ok-border: #2e9e5b;
+  --ok-text: #165b33;
+  --bad-bg: #fdeeee;
+  --bad-border: #d64545;
+  --bad-text: #871e1e;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.app {
+  width: 100%;
+  max-width: 760px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(24, 32, 44, 0.06);
+}
+
+.is-hidden {
+  display: none;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.65rem;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Форма анкеты */
+.field {
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.field-row {
+  display: flex;
+  gap: 16px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--surface);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(29, 95, 214, 0.18);
+}
+
+input.is-invalid {
+  border-color: var(--bad-border);
+  background: #fffafa;
+}
+
+.error-msg {
+  display: block;
+  min-height: 18px;
+  margin-top: 5px;
+  color: var(--bad-text);
+  font-size: 0.85rem;
+}
+
+/* Кнопки */
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.btn-secondary {
+  background: #eef2f7;
+  color: var(--text);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #e2e8f0;
+}
+
+/* Шапка теста и прогресс */
+.user-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.user-info {
+  line-height: 1.35;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-left: 6px;
+}
+
+.score-pill {
+  background: #eef4ff;
+  color: var(--accent);
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.quiz-meta {
+  margin-bottom: 16px;
+}
+
+#question-counter {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.progress-track {
+  height: 8px;
+  background: #e9eef5;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+/* Вопрос и 3 карточки вариантов */
+.question-title {
+  margin: 0 0 18px;
+  font-size: 1.22rem;
+  line-height: 1.4;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.option-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+  padding: 16px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.96rem;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.12s ease, background-color 0.15s ease;
+}
+
+.option-card:hover:not(:disabled) {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.option-card:disabled {
+  cursor: default;
+}
+
+.option-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #eef2f7;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.option-card.is-correct {
+  border-color: var(--ok-border);
+  background: var(--ok-bg);
+}
+
+.option-card.is-correct .option-letter {
+  background: var(--ok-border);
+  color: #ffffff;
+}
+
+.option-card.is-wrong {
+  border-color: var(--bad-border);
+  background: var(--bad-bg);
+}
+
+.option-card.is-wrong .option-letter {
+  background: var(--bad-border);
+  color: #ffffff;
+}
+
+/* Пояснение и навигация */
+.feedback-box {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.feedback-box.is-correct {
+  background: var(--ok-bg);
+  border: 1px solid var(--ok-border);
+  color: var(--ok-text);
+}
+
+.feedback-box.is-wrong {
+  background: var(--bad-bg);
+  border: 1px solid var(--bad-border);
+  color: var(--bad-text);
+}
+
+.quiz-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Экран результатов */
+.result-highlight {
+  background: #f5f8fc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.result-score {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.result-percent {
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.review-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-item {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.review-item.is-correct {
+  border-left: 4px solid var(--ok-border);
+}
+
+.review-item.is-wrong {
+  border-left: 4px solid var(--bad-border);
+}
+
+.review-item > div + div {
+  margin-top: 4px;
+}
+
+.actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Адаптив */
+@media (max-width: 680px) {
+  .field-row,
+  .options-grid {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
