@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тест монтажника РЭАиП</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <main class="app">
+    <!-- ЭКРАН 1: АНКЕТА -->
+    <section id="survey-screen" class="card screen" aria-labelledby="survey-title">
+      <h1 id="survey-title">Анкета участника</h1>
+      <p class="subtitle">
+        Заполните данные перед началом теста по основам профессии монтажника радиоэлектронной аппаратуры и приборов.
+      </p>
+
+      <form id="survey-form" novalidate>
+        <div class="field">
+          <label for="full-name">ФИО</label>
+          <input
+            id="full-name"
+            name="fullName"
+            type="text"
+            placeholder="Например: Иванов Иван Иванович"
+            autocomplete="name"
+          />
+          <small class="error-msg" data-for="fullName"></small>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="age">Возраст (лет)</label>
+            <input
+              id="age"
+              name="age"
+              type="number"
+              min="14"
+              max="100"
+              placeholder="18"
+            />
+            <small class="error-msg" data-for="age"></small>
+          </div>
+
+          <div class="field">
+            <label for="experience">Стаж работы (лет)</label>
+            <input
+              id="experience"
+              name="experience"
+              type="number"
+              min="0"
+              max="80"
+              placeholder="0"
+            />
+            <small class="error-msg" data-for="experience"></small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Начать тест</button>
+      </form>
+    </section>
+
+   
+  </main>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
