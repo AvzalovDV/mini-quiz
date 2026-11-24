@@ -59,7 +59,58 @@
         <button type="submit" class="btn btn-primary">Начать тест</button>
       </form>
     </section>
+    <!-- ЭКРАН 2: ТЕСТ -->
+    <section id="quiz-screen" class="card screen is-hidden" aria-labelledby="question-text" aria-live="polite">
+      <div class="user-bar">
+        <div class="user-info">
+          <strong id="user-summary-name"></strong>
+          <span id="user-summary-meta" class="muted"></span>
+        </div>
+        <div class="score-pill">Баллы: <span id="current-score">0</span></div>
+      </div>
 
+      <div class="quiz-meta">
+        <span id="question-counter">Вопрос 1 из 5</span>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <h2 id="question-text" class="question-title"></h2>
+
+      <!-- 3 карточки ответа рендерятся динамически из JS -->
+      <div id="options-container" class="options-grid" role="list"></div>
+
+      <div id="feedback-box" class="feedback-box is-hidden"></div>
+
+      <div class="quiz-actions">
+        <button id="next-btn" type="button" class="btn btn-primary" disabled>
+          Следующий вопрос
+        </button>
+      </div>
+    </section>
+
+    <!-- ЭКРАН 3: ИТОГИ -->
+    <section id="result-screen" class="card screen is-hidden" aria-labelledby="result-title">
+      <h1 id="result-title">Результаты теста</h1>
+      <p id="result-user" class="subtitle"></p>
+
+      <div class="result-highlight">
+        <div id="final-score-text" class="result-score"></div>
+        <div id="final-percent-text" class="result-percent"></div>
+      </div>
+
+      <ul id="review-list" class="review-list"></ul>
+
+      <div class="actions-row">
+        <button id="retry-quiz-btn" type="button" class="btn btn-primary">
+          Пройти тест ещё раз
+        </button>
+        <button id="edit-survey-btn" type="button" class="btn btn-secondary">
+          Изменить анкету
+        </button>
+      </div>
+    </section>
    
   </main>
 
